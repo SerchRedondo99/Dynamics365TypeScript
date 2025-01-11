@@ -1,0 +1,14 @@
+# Dependencias npm
+node_modules/
+
+#Archivos de log
+npm-debug.log
+yarn-error.log
+
+#salida de compilacion (TypeScript/JavaScript)
+dist/
+build/
+.next/
+
+#Configuraciones personales de VScode
+.vscode/
