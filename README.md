@@ -1,14 +1,15 @@
-# Implementación TypeScript para formularios, vistas y Ribbon Worbench utilizando el Cliente API Dynamics 365
+# Implementación de TypeScript para formularios, vistas y Ribbon Workbench utilizando el Cliente API de Dynamics 365
 
 ## Descripción
-Este documento detalla paso a paso como implementar y optimizar el uso de TypeScript en proyecto de Dynamics 365 customer engagement.
+Este documento detalla, paso a paso, cómo implementar y optimizar el uso de TypeScript en un proyecto de Dynamics 365 Customer Engagement.  
 Ventajas de utilizar esta implementación para tus proyectos de Dynamics 365.
+
 # Ventajas
 - TypeScript proporciona robustez, escalabilidad y detección de errores en tiempo de compilación.
-- Al compilar con –sourceMap, puedes depurar tu código TypeScript directamente en el navegador.
+- Al compilar con `--sourceMap`, puedes depurar tu código TypeScript directamente en el navegador.
 - TypeScript se compila a JavaScript estándar.
-- El paquete @type/xrm brinda tipados para la API Dynamics 365, asegurado que tus llamadas al Xrm y formContext sean correctas y con autocompletado.
-- Webpack Permite empaquetar y optimizar tu aplicación, resultando en un recurso web (o varios archivos) eficiente y fácil de administrar.
+- El paquete `@types/xrm` brinda tipados para la API de Dynamics 365, asegurando que tus llamadas a `Xrm` y `formContext` sean correctas y cuenten con autocompletado.
+- Webpack permite empaquetar y optimizar tu aplicación, resultando en un recurso web (o varios archivos) eficiente y fácil de administrar.
 
 ## Índice
 - [Descarga del proyecto](#descarga)
@@ -18,17 +19,17 @@ Ventajas de utilizar esta implementación para tus proyectos de Dynamics 365.
 - [Notas](#notas)
 
 # Descarga
-- Ingrese a visualstudiocode e inicie una nueva terminal. Escriba la siguiente línea de comandos.
-- git clone https://github.com/SerchRedondo99/Dynamics365TypeScript.git
+- Ingrese a **Visual Studio Code** e inicie una nueva terminal. Escriba la siguiente línea de comandos.
+- `git clone https://github.com/SerchRedondo99/Dynamics365TypeScript.git`
 
 # Instalación
-- npm install -g npm@latest
+- `npm install -g npm@latest`
 
 # Compilación
-npm run start
+`npm run start`
 
 # Uso
-- Cargue el archivo compilado como recurso web en power app.
+- Cargue el archivo compilado como recurso web en **Power Apps**.
 
 # Notas
 Para trabajar en un proyecto que utilice Node.js, npm y TypeScript en tu computadora, primero necesitas instalar Node.js. Este software incluye automáticamente npm (Node Package Manager), que te permitirá gestionar las dependencias de tu proyecto y ejecutar scripts de manera sencilla. Al obtener Node.js, te aseguras de contar con la base fundamental para desarrollar aplicaciones basadas en JavaScript y TypeScript.
