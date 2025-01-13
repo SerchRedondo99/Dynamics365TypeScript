@@ -31,15 +31,21 @@ export class Principal {
         }
     }
 
-    public static async ObtenerRegistro(entityname: string, entityId: string): Promise<any> {
+    public static async ObtenerRegistro(entityname: string, entityId: string): Promise<unknown | null> {
         try {
-            if (this.formContext.ui.getFormType() == Utilidades.FormType.Update) {
-                return await Xrm.WebApi.retrieveRecord(entityname, entityId);
-            } else {
-                return null;
+
+            if (this.formContext.ui.getFormType() === Utilidades.FormType.Update) {
+                const record = await Xrm.WebApi.retrieveRecord(entityname, entityId);
+                return record;
             }
+
+            return null;
+
         } catch (error) {
 
+            console.error("Error al obtener el registro", error);
+
+            return null;
         }
     }
 }
