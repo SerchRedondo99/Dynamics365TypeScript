@@ -25,7 +25,7 @@ export class Principal {
 
     public static OnSave(): void {
         try {
-
+            console.log("Executando OnSave");
         } catch (error) {
             console.log(error);
         }
