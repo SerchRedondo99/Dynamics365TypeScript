@@ -6,20 +6,18 @@ export class Principal {
     static IdRecord: string;
     static NameEntity: string;
 
-    public static OnLoad(context: Xrm.Events.EventContext): void {
+    public static async OnLoad(context: Xrm.Events.EventContext): Promise<void> {
         try {
-            this.formContext = context.getFormContext();
-            this.IdRecord = this.formContext.data.entity.getId();
-            this.NameEntity = this.formContext.data.entity.getEntityName();
 
-            this.ObtenerRegistro(this.NameEntity, this.IdRecord).then((result) => {
-                console.log(result);
-            }).catch((error) => {
-                console.log(error);
-            })
+            this.inicializarContexto(context);
 
+            if (Utilidades.FormType.Update === this.formContext.ui.getFormType()) {
+
+                const record = await this.ObtenerRegistro(this.NameEntity, this.IdRecord);
+                console.log("Registro Obtenido : ", record);
+            }
         } catch (error) {
-            console.log(error);
+            console.log("Error OnLoad", error);
         }
     }
 
@@ -34,12 +32,8 @@ export class Principal {
     public static async ObtenerRegistro(entityname: string, entityId: string): Promise<unknown | null> {
         try {
 
-            if (this.formContext.ui.getFormType() === Utilidades.FormType.Update) {
-                const record = await Xrm.WebApi.retrieveRecord(entityname, entityId);
-                return record;
-            }
-
-            return null;
+            const record = await Xrm.WebApi.retrieveRecord(entityname, entityId);
+            return record ?? null;
 
         } catch (error) {
 
@@ -47,5 +41,10 @@ export class Principal {
 
             return null;
         }
+    }
+    private static inicializarContexto(context: Xrm.Events.EventContext) {
+        this.formContext = context.getFormContext();
+        this.IdRecord = this.formContext.data.entity.getId();
+        this.NameEntity = this.formContext.data.entity.getEntityName();
     }
 }
